@@ -11,9 +11,26 @@ export type MainTabParamList = {
 };
 
 export type TabOneParamList = {
-  TabOneScreen: undefined;
+  ChatScreen: undefined;
 };
 
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+export type User = {
+  id: String;
+  name: String;
+  imageUrl: String;
+}
+
+export type Message = {
+  id: String;
+  content: string;
+  createdAt: number;
+}
+export type ChatRoom = {
+  id: String;
+  users: [User];
+  lastMessage: Message;
+}
