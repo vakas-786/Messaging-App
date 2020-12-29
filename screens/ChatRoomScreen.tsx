@@ -9,7 +9,8 @@ const ChatRoomScreen = () => {
 
     const route = useRoute();
     return (
-        <FlatList data={ChatroomData.messages} renderItem={({ item }) => <ChatMessage message={item}/>}/>
+        <FlatList data={ChatroomData.messages} inverted renderItem={({ item }) => <ChatMessage message={item}/>}/>
+
     )
 }
 
