@@ -3,11 +3,13 @@ import { StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import ChatListItem from '../components/ChatList/index'
 import EditScreenInfo from '../components/EditScreenInfo';
+import NewMessageButton from '../components/NewMessageButton';
 import { View } from '../components/Themed';
 import ChatRooms from '../data/ChatRooms'
 
 export default function ChatScreen() {
   return (
+    <>
     <View style={styles.container}>
       <FlatList 
       style ={{width: '100%'}}
@@ -16,6 +18,9 @@ export default function ChatScreen() {
       keyExtractor={(item) => item.id}
       />
     </View>
+    <NewMessageButton/>
+    </>
+
   );
 }
 
