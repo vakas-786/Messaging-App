@@ -10,7 +10,7 @@ const NewMessageButton = () => {
     const navigation = useNavigation();
 
     const onPress = () => {
-        navigation.navigate('NewRoom');
+        navigation.navigate('Contacts');
     }
 
     return (
