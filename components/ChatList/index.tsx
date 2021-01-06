@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
-import Navigation from '../../navigation';
 import { ChatRoom } from '../../types'
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';

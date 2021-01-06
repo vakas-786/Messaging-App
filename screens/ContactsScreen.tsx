@@ -1,27 +1,45 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react'
+import { API, graphqlOperation } from 'aws-amplify';
 import { StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
-import ChatListItem from '../components/ChatList/index';
-import ContactListItem from '../components/ContactListItem';
-import NewMessageButton from '../components/NewMessageButton';
+import ContactListItem from '../components/ContactListItem/index';
 import { View } from '../components/Themed';
-import ChatRooms from '../data/ChatRooms'
+import Users from '../data/Users'
+import { listUsers } from '../graphql/queries';
 
 export default function Contacts() {
+
+  const [users, setUsers] = useState([]);
+
+
+
+  useEffect( () => {
+    const fetchUsers = async () => {
+      try {
+        const usersData = await API.graphql(
+          graphqlOperation(
+            listUsers
+          )
+        )
+        setUsers(usersData.data.listUsers.items);
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    fetchUsers();
+  }, [])
+
   return (
     <>
     <View style={styles.container}>
       <FlatList 
       style ={{width: '100%'}}
-      data={ChatRooms}
+      data={users}
       renderItem={({ item }) => <ContactListItem user={item} />}
       keyExtractor={(item) => item.id}
       />
-      <NewMessageButton/>
     </View>
-    
     </>
-
   );
 }
 

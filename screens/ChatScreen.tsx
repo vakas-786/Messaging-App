@@ -6,7 +6,6 @@ import NewMessageButton from '../components/NewMessageButton';
 import { View } from '../components/Themed';
 import ChatRooms from '../data/ChatRooms'
 
-
 export default function ChatScreen() {
   return (
     <>
@@ -19,9 +18,7 @@ export default function ChatScreen() {
       />
       <NewMessageButton/>
     </View>
-    
     </>
-
   );
 }
 

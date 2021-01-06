@@ -9,7 +9,6 @@ import Amplify, {Auth, API, graphqlOperation} from 'aws-amplify';
 import {getUser} from './graphql/queries';
 import config from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react-native';
-import { useCardAnimation } from '@react-navigation/stack';
 import { createUser } from './graphql/mutations';
 Amplify.configure(config)
 
@@ -36,10 +35,10 @@ function App() {
       if (userInfo) {
         const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }))
 
-        if (userData.data.getUser) {
-          console.log("User is already registered in database");
-          return;
-        }
+        // if (userData.data.getUser) {
+        //   console.log("User is already registered in database");
+        //   return;
+        // }
 
         const newUser = {
           id: userInfo.attributes.sub,
