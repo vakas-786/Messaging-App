@@ -37,6 +37,7 @@ const ContactListItem = (props: ContactListItemProps) => {
 
           <View style={styles.midContainer}>
             <Text style={styles.username}>{user.name}</Text>
+            <Text style={styles.status}>{user.status}</Text>
           </View>
         </View>
       </View>

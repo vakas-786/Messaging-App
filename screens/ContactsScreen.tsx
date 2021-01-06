@@ -11,8 +11,6 @@ export default function Contacts() {
 
   const [users, setUsers] = useState([]);
 
-
-
   useEffect( () => {
     const fetchUsers = async () => {
       try {
