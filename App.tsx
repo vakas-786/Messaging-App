@@ -35,10 +35,10 @@ function App() {
       if (userInfo) {
         const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }))
 
-        // if (userData.data.getUser) {
-        //   console.log("User is already registered in database");
-        //   return;
-        // }
+        if (userData.data.getUser) {
+          console.log("User is already registered in database");
+          return;
+        }
 
         const newUser = {
           id: userInfo.attributes.sub,

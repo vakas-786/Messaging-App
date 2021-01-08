@@ -6,13 +6,15 @@ import styles from '../ChatMessage/styles';
 
 export type ChatMessageProps = {
     message: Message;
+    myId: String,
 }
 
 const ChatMessage = (props: ChatMessageProps) => {
-    const {message} = props;
+    const {message, myId} = props;
+    console.log(props)
 
     const isMyMessage = () => {
-        return message.user.id === 'u1';
+        return message.userID === myId;
     }
 
     return(
@@ -24,7 +26,7 @@ const ChatMessage = (props: ChatMessageProps) => {
                     marginRight: isMyMessage() ? 0 : 50,
                     }  
                 ]}>
-                {!isMyMessage() && <Text style={styles.name}>{message.user.name}</Text>}
+                {!isMyMessage() && <Text style={styles.name}></Text>}
                 <Text style={styles.message}>{message.content}</Text>
                 <Text style={styles.time}>{moment((message.createdAt)).fromNow()}</Text>
             </View>
