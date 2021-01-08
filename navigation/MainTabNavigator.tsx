@@ -6,8 +6,10 @@ import {Fontisto} from '@expo/vector-icons'
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChatScreen from '../screens/ChatScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import TabTwoScreen from '../screens/NewsScreen';
+import { MainTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
+import NewsScreen from '../screens/NewsScreen';
+import CryptoScreen from '../screens/CryptoScreen';
 
 const MainTab = createMaterialTopTabNavigator<MainTabParamList>();
 
@@ -29,10 +31,10 @@ export default function MainTabNavigator() {
          
       }}>
       <MainTab.Screen
-        name="Camera"
-        component={TabOneNavigator}
+        name="Crypto"
+        component={CryptoScreen}
         options={{
-          tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18} />,
+          tabBarIcon: ({ color }) => <Fontisto name="line-chart" color={color} size={18} />,
           tabBarLabel: () => null
         }}
       />
@@ -42,12 +44,8 @@ export default function MainTabNavigator() {
       />
 
       <MainTab.Screen
-        name="Status"
-        component={TabTwoNavigator}
-      />
-      <MainTab.Screen
-        name="Calls"
-        component={TabTwoNavigator}
+        name="News"
+        component={NewsScreen}
       />
     </MainTab.Navigator>
 
@@ -69,7 +67,6 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="ChatScreen"
         component={ChatScreen}
-        options={{ headerTitle: 'Tab One Title' }}
       />
     </TabOneStack.Navigator>
   );
@@ -81,10 +78,25 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        name="NewsScreen"
+        component={NewsScreen}
+        options={{ headerTitle: 'News' }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const TabThreeStack = createStackNavigator<TabThreeParamList>();
+
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="CryptoScreen"
+        component={CryptoScreen}
+        options={{ headerTitle: 'Crypto' }}
+      />
+    </TabThreeStack.Navigator>
   );
 }
