@@ -13,6 +13,7 @@ import { View } from 'react-native';
 import ChatRoomScreen from '../screens/ChatRoomScreen'
 import ContactsScreen from '../screens/ContactsScreen'
 import NewsScreen from '../screens/NewsScreen';
+import ArticleScreen from '../screens/ArticleScreen';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -46,7 +47,7 @@ function RootNavigator() {
     }}>
       <Stack.Screen name="Root" component={BottomTabNavigator}
       options={{ 
-        title: "StockChat",
+        title: "CryptoChat",
         headerRight: () => (
           <View style={{
             flexDirection: 'row',
@@ -82,7 +83,23 @@ function RootNavigator() {
       <Stack.Screen name="Contacts"
        component={ContactsScreen} 
        />
-      
+
+      <Stack.Screen name="Article"
+       component={ArticleScreen} 
+       options={({ route })  => ({
+        title: route.params.article.source.name,
+        headerRight: () => (
+          <View style={{
+            flexDirection: 'row',
+            width: 100,
+            justifyContent: 'space-between',
+            marginRight: 10,
+          }}>
+          </View>
+          )
+        })}
+        />
+
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

@@ -7,8 +7,6 @@ import {API,graphqlOperation,Auth,} from 'aws-amplify';
 import { messagesByChatRoom } from '../graphql/queries';
 import { onCreateMessage } from '../graphql/subscriptions'
 
-
-
 const ChatRoomScreen = () => {
 
   const [messages, setMessages] = useState([]);

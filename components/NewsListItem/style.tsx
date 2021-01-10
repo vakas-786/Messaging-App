@@ -5,27 +5,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: "100%",
     justifyContent: 'space-between',
-    padding: 10,
   },
   leftContainer: {
     flexDirection: 'row',
   },
   midContainer: {
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+    padding: 10,
   },
-  avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 50,
-    marginRight: 15,
-  },
-  username: {
+  title: {
     fontWeight: 'bold',
     fontSize: 16,
   },
-  status: {
+  name: {
     fontSize: 16,
+    fontWeight: 'bold',
     color: 'grey',
+  },
+  description: {
+    fontStyle: 'italic',
+    fontSize: 14,
+    fontWeight: '200'
   },
 });
 

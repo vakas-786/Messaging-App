@@ -4,6 +4,7 @@ export type RootStackParamList = {
   ChatRoom: undefined;
   Contacts: undefined;
   News: undefined;
+  Article: undefined;
 };
 
 export type MainTabParamList = {
@@ -48,4 +49,5 @@ export type NewsList = {
   id: String;
   title: String;
   name: String;
+  description: String;
 }

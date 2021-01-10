@@ -11,23 +11,24 @@ export type NewsListItemProps = {
 const NewsListItem = (props: NewsListItemProps) => {
 
   const { newsList } = props;
+  const navigation = useNavigation();
 
-  const onPressArticle = () => {
-    console.log('pressed article')
+
+  const clickHandler = () => {
+    navigation.navigate('Article', {
+      article: newsList
+    })
+    console.log('pressed article', newsList)
   }
-
-  console.log(newsList.title)
     return (
-    <TouchableWithoutFeedback onPress = {onPressArticle} >
+    <TouchableWithoutFeedback onPress = {clickHandler} >
       <View style={styles.container}>
-        <View style={styles.leftContainer}>
-
           <View style={styles.midContainer}>
-            <Text style={styles.username}>{newsList.title}</Text>
-            <Text>{newsList.name}</Text>
+            <Text numberOfLines={2} style={styles.title}>{newsList.title}</Text>
+            <Text numberOfLines={4} style={styles.description}>{newsList.description}</Text>
+            <Text style={styles.name}>{newsList.source.name}</Text>
           </View>
         </View>
-      </View>
     </TouchableWithoutFeedback>
     )
 }
