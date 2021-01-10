@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add @types/aws-amplify-react-native
+  /Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add metro-react-native-babel-prese
 
 PATH: 
   /Users/vakasakhtar/.rvm/gems/ruby-2.6.1/bin:/Users/vakasakhtar/.rvm/gems/ruby-2.6.1@global/bin:/Users/vakasakhtar/.rvm/rubies/ruby-2.6.1/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/vakasakhtar/.rvm/gems/ruby-2.6.1/bin:/Users/vakasakhtar/.rvm/gems/ruby-2.6.1@global/bin:/Users/vakasakhtar/.rvm/rubies/ruby-2.6.1/bin:/Users/vakasakhtar/.nvm/versions/node/v14.4.0/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/sbin:/Users/vakasakhtar/.rvm/bin:/Users/vakasakhtar/.rvm/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2faws-amplify-react-native: Not found
+  Error: https://registry.yarnpkg.com/metro-react-native-babel-prese: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
       at Request.emit (events.js:315:20)
@@ -50,6 +50,7 @@ npm manifest:
       "@react-navigation/stack": "^5.12.6",
       "aws-amplify": "^3.3.13",
       "aws-amplify-react-native": "^4.2.10",
+      "dotenv": "^8.2.0",
       "expo": "~40.0.0",
       "expo-asset": "~8.2.1",
       "expo-constants": "~9.3.0",
@@ -62,6 +63,7 @@ npm manifest:
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+      "react-native-dotenv": "^2.5.0",
       "react-native-gesture-handler": "~1.8.0",
       "react-native-reanimated": "^1.13.2",
       "react-native-safe-area-context": "3.1.9",
@@ -73,6 +75,7 @@ npm manifest:
       "@babel/core": "~7.9.0",
       "@types/react": "~16.9.35",
       "@types/react-native": "~0.63.2",
+      "@types/react-native-dotenv": "^0.2.0",
       "jest-expo": "~40.0.0",
       "typescript": "~4.0.0"
     },
@@ -3069,6 +3072,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
     integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
   
+  "@types/react-native-dotenv@^0.2.0":
+    version "0.2.0"
+    resolved "https://registry.yarnpkg.com/@types/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz#32c58422a422c1adf68acce363ed791314d5a8e7"
+    integrity sha512-ZxX+dU/yoQc0jTk+/NWttkiuXceJyN5FpOSqDl0WynN5GDzxwH7OMruQ47qcY8llo2RD3irjvzJ9BwC8gDiq0A==
+  
   "@types/react-native@~0.63.2":
     version "0.63.37"
     resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.37.tgz#c43df90c9d3cc082a97a49a53e989de26cb8ab45"
@@ -4816,6 +4824,11 @@ Lockfile:
     integrity sha512-raigMkn7CJNNo6Ihro1fzG7wr3fHuYVytzquZKX5n0yizGsTcYgzdIUwj1X9pK0VvjeihV+XiclP+DjwbsSKug==
     dependencies:
       webidl-conversions "^4.0.2"
+  
+  dotenv@^8.0.0, dotenv@^8.2.0:
+    version "8.2.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+    integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   
   ecc-jsbn@~0.1.1:
     version "0.1.2"
@@ -8400,6 +8413,13 @@ Lockfile:
     version "17.0.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
     integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+  
+  react-native-dotenv@^2.5.0:
+    version "2.5.0"
+    resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-2.5.0.tgz#58a5131cb2f694418a7f1a2be3d228d3cc2b96bd"
+    integrity sha512-9VXy8rzj+phx/PHzLLbDAK/L2KNkMRia2CmUeQx23LjoGtYWqTaGhAuihFz9aPBrbdo4n4ykKeDOdhEiqzpqSg==
+    dependencies:
+      dotenv "^8.0.0"
   
   react-native-gesture-handler@~1.8.0:
     version "1.8.0"

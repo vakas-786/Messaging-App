@@ -13,7 +13,6 @@ export default function CryptoScreen() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

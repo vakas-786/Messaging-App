@@ -12,6 +12,7 @@ import * as Color from '../constants/Colors'
 import { View } from 'react-native';
 import ChatRoomScreen from '../screens/ChatRoomScreen'
 import ContactsScreen from '../screens/ContactsScreen'
+import NewsScreen from '../screens/NewsScreen';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -81,6 +82,7 @@ function RootNavigator() {
       <Stack.Screen name="Contacts"
        component={ContactsScreen} 
        />
+      
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

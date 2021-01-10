@@ -11,8 +11,6 @@ export type ChatMessageProps = {
 
 const ChatMessage = (props: ChatMessageProps) => {
     const {message, myId} = props;
-    console.log(props)
-
     const isMyMessage = () => {
         return message.userID === myId;
     }
