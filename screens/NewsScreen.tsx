@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import NewsListItem from '../components/NewsListItem/index';
 import { Text, View } from '../components/Themed';
-import { API_KEY } from '../env'
-
-
+import { API_KEY, URL } from '../env'
 
 export default function NewsScreen() {
 
@@ -13,8 +11,8 @@ export default function NewsScreen() {
 
   useEffect( () => {
 
-    let url = 'http://newsapi.org/v2/everything?q=bitcoin&' +
-    `apiKey=${API_KEY}`;
+    const url = URL + API_KEY;
+    
     const fetchNews = async () => {
       try {
         const response = await fetch(url);
@@ -33,7 +31,7 @@ export default function NewsScreen() {
       style ={{width: '100%'}}
       data={news}
       renderItem={({ item }) => <NewsListItem newsList={item} />}
-      keyExtractor={(item, index) => index.id}
+      keyExtractor={(item, index) => item.id}
       />
     </View>
   );
@@ -45,14 +43,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });

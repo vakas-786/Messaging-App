@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: 'space-between',
   },
-  leftContainer: {
-    flexDirection: 'row',
-  },
   midContainer: {
     justifyContent: 'space-between',
     padding: 10,
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
   description: {
     fontStyle: 'italic',
     fontSize: 14,
-    fontWeight: '200'
+    fontWeight: '200',
   },
 });
 
