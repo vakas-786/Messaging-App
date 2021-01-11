@@ -1,31 +1,73 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { PanGestureHandler, State } from "react-native-gesture-handler";
+import Animated, {add, diffClamp, eq, modulo, sub,} from "react-native-reanimated";
+import { onGestureEvent, useValues } from "react-native-redash";
+import data from "../data/Bitcoin";
+import Chart, { size } from "../components/CryptoChart/Chart";
+import Values from "../components/CryptoChart/Values";
+import Line from "../components/CryptoChart/Line";
+import Label from "../components/CryptoChart/Label";
+import { Candle } from "../components/CryptoChart/Candle";
+import Header from "../components/CryptoChart/Header";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-
-export default function CryptoScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Crypto</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-    </View>
-  );
-}
+const candles = data.slice(0, 20);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    backgroundColor: ('black'),
   },
 });
+const getDomain = (rows: Candle[]): [number, number] => {
+  const values = rows.map(({ high, low }) => [high, low]).flat();
+  return [Math.min(...values), Math.max(...values)];
+};
+const domain = getDomain(candles);
+export default () => {
+  const [x, y, state] = useValues(0, 0, State.UNDETERMINED);
+  const gestureHandler = onGestureEvent({
+    x,
+    y,
+    state,
+  });
+  const caliber = size / candles.length;
+  const translateY = diffClamp(y, 0, size);
+  const translateX = add(sub(x, modulo(x, caliber)), caliber / 2);
+  const opacity = eq(state, State.ACTIVE);
+  return (
+    <View style={styles.container}>
+      <View>
+        <Header />
+        <Animated.View style={{ opacity }} pointerEvents="none">
+          <Values {...{ candles, translateX, caliber }} />
+        </Animated.View>
+      </View>
+      <View>
+        <Chart {...{ candles, domain }} />
+        <PanGestureHandler minDist={0} {...gestureHandler}>
+          <Animated.View style={StyleSheet.absoluteFill}>
+            <Animated.View
+              style={{
+                transform: [{ translateY }],
+                opacity,
+                ...StyleSheet.absoluteFillObject,
+              }}
+            >
+              <Line x={size} y={0} />
+            </Animated.View>
+            <Animated.View
+              style={{
+                transform: [{ translateX }],
+                opacity,
+                ...StyleSheet.absoluteFillObject,
+              }}
+            >
+              <Line x={0} y={size} />
+            </Animated.View>
+            <Label y={translateY} {...{ size, domain, opacity }} />
+          </Animated.View>
+        </PanGestureHandler>
+      </View>
+    </View>
+  );
+};

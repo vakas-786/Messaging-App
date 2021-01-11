@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import NewsListItem from '../components/NewsListItem/index';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 import { NEWS_API_KEY, NEWS_URL } from '../env'
 
 export default function NewsScreen() {
