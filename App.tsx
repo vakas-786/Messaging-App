@@ -10,6 +10,7 @@ import {getUser} from './graphql/queries';
 import config from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { createUser } from './graphql/mutations';
+
 Amplify.configure(config)
 
 const randomImages = [

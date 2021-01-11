@@ -14,6 +14,7 @@ import ChatRoomScreen from '../screens/ChatRoomScreen'
 import ContactsScreen from '../screens/ContactsScreen'
 import NewsScreen from '../screens/NewsScreen';
 import ArticleScreen from '../screens/ArticleScreen';
+import {Auth} from 'aws-amplify';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -32,6 +33,12 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+  const logOut = async () => {
+    await Auth.signOut()
+     .then(data => console.log(data))
+     .catch(err => console.log(err));
+  }
+  
   return (
     <Stack.Navigator screenOptions={{
       headerStyle: {
@@ -56,7 +63,7 @@ function RootNavigator() {
             marginRight: 10
             }}>
             <Octicons name='search' size ={24} color={'white'}/>
-            <MaterialCommunityIcons name='dots-vertical' size={22} color={'white'}/>
+            <MaterialCommunityIcons onPress={logOut} name='dots-vertical' size={22} color={'white'}/>
           </View>
         )
       }} />
