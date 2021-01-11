@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
         lineHeight: 30,
         fontWeight: '400',
     },
+    date: {
+        fontSize: 14,
+        fontStyle: 'italic'
+    }
 })
 
 export default styles;
