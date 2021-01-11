@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import NewsListItem from '../components/NewsListItem/index';
 import { Text, View } from '../components/Themed';
-import { API_KEY, URL } from '../env'
+import { NEWS_API_KEY, NEWS_URL } from '../env'
 
 export default function NewsScreen() {
 
@@ -11,8 +11,8 @@ export default function NewsScreen() {
 
   useEffect( () => {
 
-    const url = URL + API_KEY;
-    
+    const url = NEWS_URL + NEWS_API_KEY;
+
     const fetchNews = async () => {
       try {
         const response = await fetch(url);
