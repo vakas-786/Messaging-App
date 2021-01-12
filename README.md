@@ -1,4 +1,4 @@
-# CryptoChat - A Cryptocurrency Themed Messaging-App
+# CryptoChat - A Cryptocurrency Themed Messaging App
 A messaging app built with a react native front end and an AWS Amplify GraphQL API backend. Users can also view cryptocurrency news as well as a candlestick chart that displays historical Bitcoin price data. 
 ## Screenshots 
 <p float="left">
